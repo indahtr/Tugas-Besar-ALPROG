@@ -1,14 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 #include <time.h>
 
 void menu();
 void selesai();
 
 int main(){
-// tampilan menu login 
+// tampilan menu login
 	char nama[100];
 	char username [15];
 	char password [15];
@@ -22,15 +20,16 @@ int main(){
 	scanf("%s", &password);
 	if ((strcmp(username, "admin") == 0) && (strcmp(password, "metropole") ==0)){
     getchar();
-    system ("clear");
+    system ("cls");
 	printf("\n\t==============================================================\n");
 	printf("\n\t||                M E T R O P O L E   X X I                 ||\n");
 	printf("\n\t``````````````````````````````````````````````````````````````\n");
 	printf("\n\t||               S E L A M A T  D A T A N G                 ||\n");
-	printf("\n\t||\t\t   %s ||", nama);
+	printf("\n\t||\t\t%s||", nama);
 	printf("\n\t==============================================================\n");
+	printf("\n\n\tTekan Enter untuk melanjutkan");
     getchar();
-    system ("clear");
+    system ("cls");
 	menu();
 	}else {
         printf("\n--------------------------------");
@@ -39,7 +38,7 @@ int main(){
         printf("\nTEKAN ENTER UNTUK KEMBALI");
          printf("\n-------------------------------");
         getchar();
-        system ("clear");
+        system ("cls");
         main();
 
 	}
@@ -55,7 +54,7 @@ void menu(){
     float jam2[6]= {0,12.40, 14.40, 15.50, 17.50, 19.00};
     int hari, film, jamtayang, tiket, h, i, angka_kursi[50];
     float harga_tiket, total_harga, bayar, kembalian;
-    char judul [5][50]= {"Error", "MIRACLE IN CELL NO 7", "THE DOLL", "MENCURI RADEN SALEH", "KKN DI DESA PENARI"};
+    char judul [5][50]= {"Error", "MIRACLE IN CELL NO 7", "PREY FOR THE DEVIL ", "MENCURI RADEN SALEH", "KKN DI DESA PENARI"};
     char seat [10][12] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
     char huruf_kursi[30], cetak, pesan;
 
@@ -70,7 +69,7 @@ void menu(){
     printf("|\t  |\t\t\t|   1   |   2   |   3   |   4   |   5   | \n");
     printf("|-----------------------------------------------------------------------|\n");
     printf("|    1    | MIRACLE IN CELL NO 7| 12.00 | 14.20 | 16.40 | 19.00 | 21.20 | \n");
-    printf("|    2    | THE DOLL \t\t| 12.40 | 14.40 | 15.50 | 17.50 | 19.00 | \n");
+    printf("|    2    | PREY FOR THE DEVIL \t| 12.40 | 14.40 | 15.50 | 17.50 | 19.00 | \n");
     printf("|    3    | MENCURI RADEN SALEH | 12.40 | 14.40 | 15.50 | 17.50 | 19.00 |\n");
     printf("|    4    | KKN DI DESA PENARI \t| 12.00 | 14.20 | 16.40 | 19.00 | 21.20 |\n");
     printf("-------------------------------------------------------------------------\n");
@@ -107,7 +106,7 @@ void menu(){
     scanf("%d",&film);
     printf("\nPilih Jam ke-(1/2/3/4/5): ");
     scanf("%d",&jamtayang);
-    system ("clear");
+    system ("cls");
 
 
     printf("\n````````````````````````````");
@@ -148,7 +147,7 @@ void menu(){
             }
         }
     }
-system("clear");
+system("cls");
 printf("================================================================\n");
 printf("| NO |\t\tFILM\t\t|\tSEAT\t|\tHarga  |\n");
 printf("================================================================\n");
@@ -168,7 +167,7 @@ printf("\n\nCetak Tiket (Y/N)? ");
 scanf("%s", &cetak );
 puts("");
 
-system("clear");
+system("cls");
 if(cetak=='y' | cetak=='Y'){
     for(i=0;i<tiket;i++){
         printf("==================================\n");
@@ -190,7 +189,7 @@ if(cetak=='y' | cetak=='Y'){
      scanf("%s", &pesan);
 
      if (pesan=='y' | pesan=='Y'){
-        system("clear");
+        system("cls");
         getchar();
         main();
      }else if(pesan=='n' | pesan=='N'){
@@ -209,7 +208,7 @@ if(cetak=='y' | cetak=='Y'){
 
 }
 void selesai(){
-    system("clear");
+    system("cls");
     printf("\n\n\t==========================================================\n");
             printf("\t|                                                        |\n");
             printf("\t|                T E R I M A   K A S I H                 |\n");
