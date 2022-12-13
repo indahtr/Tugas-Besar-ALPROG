@@ -34,7 +34,7 @@ int main(){
         printf("\n\t||                                                          ||");
         printf("\n\t`````````````````````````````````````````````````````````````\n");
         printf("\n\t||                      Selamat Datang                      ||\n");
-        printf("\n\t||\t\t\t%s||", nama);
+        printf("\n                                %s", nama);
         printf("\n\t==============================================================\n");
         printf("\n\n\tTekan Enter untuk melanjutkan...");
         getchar();
