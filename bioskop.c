@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
+#include <time.h> //library untuk memanggil local time
 
 int main();
 void awal();
@@ -10,7 +10,8 @@ void riwayat_transaksi();
 void selesai();
 
 int main(){
-// tampilan menu login pegawai
+
+// tampilan menu login pegawai atau admin
 	char nama[100];
 	char username [15];
 	char password [15];
@@ -25,7 +26,7 @@ int main(){
 	printf("\nMasukkan password: ");
 	fflush(stdin);
 	scanf("%s", &password);
-    if ((strcmp(username, "admin") == 0) && (strcmp(password, "metropole") ==0)){
+    if ((strcmp(username, "admin") == 0) && (strcmp(password, "metropole") ==0)){ //untuk meng-set username dan password
         getchar();
         system ("cls");
         printf("\n\t==============================================================\n");
@@ -34,12 +35,13 @@ int main(){
         printf("\n\t||                                                          ||");
         printf("\n\t`````````````````````````````````````````````````````````````\n");
         printf("\n\t||                      Selamat Datang                      ||\n");
-        printf("\n                                %s", nama);
+        printf("\n                                 %s", nama);
         printf("\n\t==============================================================\n");
         printf("\n\n\tTekan Enter untuk melanjutkan...");
         getchar();
         system ("cls");
         awal();
+        //validasi
 	}else {
         printf("\n--------------------------------");
 		printf("\nPassword atau Username Salah!\n");
@@ -52,6 +54,7 @@ int main(){
 	}
 }
 
+//tampilan menu pegawai
 void awal(){
 int menu;
     fflush(stdin);
@@ -67,8 +70,8 @@ int menu;
     printf("\n\tMasukkan Pilihan Anda : ");
 	while(scanf("%d", &menu)==0 || menu < 1 || menu > 2){
         printf("\t--------------------------------------------------------------");
-        printf("\n\tAngka yang Anda inputkan salah!");
-        printf("\n\tMohon inputkan pilihan yang benar...");
+        printf("\n\tPilihan yang Anda inputkan salah!");
+        printf("\n\tMasukkan ulang pilihan anda:");
         printf("\n\t--------------------------------------------------------------");
         printf("\n\tMasukkan Pilihan Anda : ");
         while((getchar())!='\n');
@@ -82,7 +85,7 @@ int menu;
 }
 
 void pemesanan(){
-// tampilan menu dan transaksi
+// tampilan daftar film dan transaksi
     struct tm *local;
     time_t now;
     now = time (NULL);
@@ -142,7 +145,7 @@ void pemesanan(){
     while (scanf("%d", &film)==0 || film < 1 || film >4 ){
         printf("\t----------------------------------------------");
         printf("\n\tAngka yang Anda inputkan salah!");
-        printf("\n\tMohon inputkan pilihan yang benar...");
+        printf("\n\tMasukkan ulang pilihan Anda:");					//validasi apabila menginputkan pilihan film yang salah
         printf("\n\t----------------------------------------------");
         printf("\n\tMasukkan Pilihan Anda : ");
      	while((getchar())!='\n');
@@ -151,13 +154,15 @@ void pemesanan(){
     while (scanf("%d", &jamtayang)==0 || jamtayang <1 || jamtayang>5){
         printf("\t----------------------------------------------");
         printf("\n\tKarakter yang Anda inputkan salah!");
-        printf("\n\tMohon inputkan angka yang benar...");
+        printf("\n\tMasukkan ulang pilihan Anda:");				//validasi apabila menginputkan pilihan jam tayang yangs salah
         printf("\n\t----------------------------------------------");
         printf("\n\tMasukkan Pilihan Anda : ");
      	while((getchar())!='\n');
     }
 
     system ("cls");
+
+//menampilkan film dan jam tayang yang dipesan
 
     printf("\n````````````````````````````");
     printf("\n  TIKET FILM YANG DIPESAN  \n");
@@ -179,15 +184,18 @@ void pemesanan(){
      	while((getchar())!='\n');
     }
 
+//memilih row dan seat di dalam bioskop
+
     printf("\nPilih Seat Yang Tersedia!\n\n");
     printf("======================================================================\n\n");
-    printf("===========================---------------============================\n\n");
-    printf("===========================| S C R E E N |============================\n\n");
-    printf("===========================---------------============================\n\n");
-    for(i=0; i<10; i++){
+    printf("                      |``````````````````|\n");
+    printf("                      |       SCREEN     |\n");
+    printf("                      ````````````````````\n\n");
+
+	for(i=0; i<10; i++){
         for(h=1;h<=20;h++)
         {
-            printf("%s%d ",seat[i],h);
+            printf("%s%d ",seat[i],h);//menampilkan daftar pilihan row dan seat
         }
         printf("\n\n");
         printf("======================================================================\n\n");
@@ -198,7 +206,14 @@ void pemesanan(){
     for(h=0;h<tiket;h++){
         cekkursi:
         printf("Pilih Nomor kursi ke-%d : ",h+1);
-        scanf("%d", &angka_kursi[h]);
+        while(scanf("%d", &angka_kursi[h])==0 || angka_kursi[h] < 1 || angka_kursi[h] > 20){
+        printf("\t--------------------------------------------------------------");
+        printf("\n\tNomor Kursi Tidak Tersedia!");
+        printf("\n\tMohon masukkan ulang pilihan :");
+        printf("\n\t--------------------------------------------------------------");
+        printf("\n\tMasukkan Pilihan Anda : ");
+        while((getchar())!='\n');
+    }
         for(i=0; i<h; i++){
             if(angka_kursi[h]==angka_kursi[i]){
                 printf("Maaf, Kursi %s%d telah terisi, silahkan pilih kembali\n\n",huruf_kursi, angka_kursi[i]);
@@ -206,6 +221,8 @@ void pemesanan(){
             }
         }
     }
+
+//tampilan transaksi pembelian tiket
 system("cls");
 printf("================================================================\n");
 printf("| NO |\t\tFILM\t\t|\tSEAT\t|\tHarga  |\n");
@@ -226,6 +243,7 @@ printf("\n\nCetak Tiket (Y/N)? ");
 scanf("%s", &cetak );
 puts("");
 
+//mencetak tiket
 system("cls");
 if(cetak=='y' | cetak=='Y'){
     for(i=0;i<tiket;i++){
@@ -273,7 +291,7 @@ void riwayat_transaksi(){
     printf("\n\t||``````````````````````````````````````````````````````````||");
     printf("\n\t||                      DATA TRANSAKSI                      ||");
     printf("\n\t==============================================================\n");
-    if ((fptr = fopen("RiwayatTransaksi.txt","r")) == NULL){
+    if ((fptr = fopen("RiwayatTransaksi.txt","a")) == NULL){
         printf("\n\tError: File tidak ada!");
     }
 
@@ -286,6 +304,7 @@ void riwayat_transaksi(){
     awal();
 }
 
+
 void selesai(){
     system("cls");
     printf("\n\n\t==========================================================\n");
@@ -296,12 +315,3 @@ void selesai(){
             printf("\t|                                                        |\n");
             printf("\t==========================================================\n");
 }
-
-
-
-
-
-
-
-
-
