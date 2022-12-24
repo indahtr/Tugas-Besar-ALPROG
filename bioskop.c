@@ -57,7 +57,7 @@ void mainpage(){
     printf("\n\t||==========================================================||");
     printf("\n\t||  [1] Masuk sebagai admin                                 ||");
     printf("\n\t||----------------------------------------------------------||");
-    printf("\n\t||  [2] Masuk sebagai pelanggan                             ||");
+    printf("\n\t||  [2] Masuk sebagai customer                              ||");
     printf("\n\t||----------------------------------------------------------||");
     printf("\n\t||  [3] Exit                                                ||");
     printf("\n\t==============================================================");
@@ -154,7 +154,6 @@ void admin_panel(){
 				break;
 			}
 			case 3:{
-                close();
                 mainpage();
                 break;
 			}
