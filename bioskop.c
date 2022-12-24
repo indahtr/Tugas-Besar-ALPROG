@@ -325,7 +325,6 @@ void menu_aplikasi(){
         header_data_pesanan();
         pemesanan();
     }else{
-        close();
         mainpage();
     }
 
