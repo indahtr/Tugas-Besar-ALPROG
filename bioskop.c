@@ -59,7 +59,7 @@ void mainpage(){
     printf("\n\t||----------------------------------------------------------||");
     printf("\n\t||  [2] Masuk sebagai pelanggan                             ||");
     printf("\n\t||----------------------------------------------------------||");
-    printf("\n\t||  [3] Exit                                              ||");
+    printf("\n\t||  [3] Exit                                                ||");
     printf("\n\t==============================================================");
     printf("\n\t Masukkan pilihan Anda [1][2][3] : ");
     scanf("%d", &pilih);
