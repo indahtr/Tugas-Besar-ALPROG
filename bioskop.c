@@ -50,13 +50,16 @@ void mainpage(){
 	{
 	system("cls");
 	printf("\n\t==============================================================");
-    printf("\n\t||                 M E T R O P O L E   X X I                ||");
-    printf("\n\t||``````````````````````````````````````````````````````````||");
-    printf("\n\t||             PROGRAM BOOKING TIKET BIOSKOP                ||");
+    printf("\n\t||                   M E T R O P O L E   X X I              ||");
+    printf("\n\t||         Jl. Raya Kampus Unud No.530C Jimbaran Badung     ||");
+    printf("\n\t||----------------------------------------------------------||");
+    printf("\n\t||                 PROGRAM BOOKING TIKET BIOSKOP            ||");
     printf("\n\t||==========================================================||");
     printf("\n\t||  [1] Masuk sebagai admin                                 ||");
+    printf("\n\t||----------------------------------------------------------||");
     printf("\n\t||  [2] Masuk sebagai pelanggan                             ||");
-    printf("\n\t||  [3] Keluar                                              ||");
+    printf("\n\t||----------------------------------------------------------||");
+    printf("\n\t||  [3] Exit                                              ||");
     printf("\n\t==============================================================");
     printf("\n\t Masukkan pilihan Anda [1][2][3] : ");
     scanf("%d", &pilih);
@@ -129,11 +132,12 @@ void admin_panel(){
 	printf("\n\t==============================================================");
     printf("\n\t||                 M E T R O P O L E   X X I                ||");
     printf("\n\t||``````````````````````````````````````````````````````````||");
-    printf("\n\t||                       ADMIN PANEL                        ||");
+    printf("\n\t||                   Tampilan Menu Admin                    ||");
     printf("\n\t||==========================================================||");
-    printf("\n\t||                    Pilihan Menu Pegawai                  ||");
     printf("\n\t||  [1] Menampilkan riwayat transaksi                       ||");
+    printf("\n\t||----------------------------------------------------------||");
     printf("\n\t||  [2] Menampilkan data customer                           ||");
+    printf("\n\t||----------------------------------------------------------||");
     printf("\n\t||  [3] Log out                                             ||");
     printf("\n\t==============================================================");
     printf("\n\tMasukkan pilihan Anda [1][2][3] : ");
